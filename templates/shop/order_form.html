@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h1>Create an order</h1>
+  <hr>
+  <div>
+    <form action="" method="post" novalidate>
+      {% csrf_token %}
+
+      {{ form|crispy }}
+
+      <input type="submit" value="Submit" class="btn btn-primary">
+      <a href="{% url 'shop_service:product-list' %}">Cancel</a>
+    </form>
+  </div>
+{% endblock %}
