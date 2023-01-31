@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load render_table from django_tables2 %}
 
 {% block content %}
   <h1>
@@ -15,29 +16,7 @@
   </form><br>
 
   {% if product_list %}
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">User</th>
-          <th scope="col">Product name</th>
-          <th scope="col">Category</th>
-          <th scope="col">Price</th>
-        </tr>
-      </thead>
-
-      {% for product in product_list %}
-        <tbody>
-          <tr>
-            <th scope="row">{{ product.id }}</th>
-            <td>{{ product.user }}</td>
-            <td>{{ product.name }}</td>
-            <td>{{ product.category }}</td>
-            <td>{{ product.price }}</td>
-          </tr>
-        </tbody>
-      {% endfor %}
-    </table>
+    {% render_table product_list 'django_tables2/bootstrap.html' %}
   {% else %}
     <p>There are no any products!</p>
   {% endif %}

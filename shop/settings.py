@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "debug_toolbar",
     "crispy_forms",
+    "django_tables2",
     "shop_service",
     "shop_api",
 ]

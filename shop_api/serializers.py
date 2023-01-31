@@ -25,7 +25,6 @@ class OrderSerializer(serializers.ModelSerializer):
     product = serializers.ListSerializer(
         child=serializers.IntegerField(
             min_value=1,
-            max_value=Product.objects.last().id,
         ),
         allow_empty=False,
         help_text="List of Product indexes",
@@ -44,7 +43,7 @@ class OrderSerializer(serializers.ModelSerializer):
             products_data = validated_data.pop("product")
             order = Order.objects.create(**validated_data)
             for product_data in products_data:
-                order.product.add(product_data)
+                order.product.add(Product.objects.get(pk=product_data))
             return order  # TODO: define why a TypeError appears
 
     class Meta:
