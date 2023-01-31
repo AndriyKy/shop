@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "debug_toolbar",
     "crispy_forms",
     "shop_service",
+    "shop_api",
 ]
 
 MIDDLEWARE = [
