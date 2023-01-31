@@ -21,5 +21,6 @@ urlpatterns = [
     path(
         "shop_service/", include("shop_service.urls", namespace="shop_service")
     ),
+    path("shop_api/", include("shop_api.urls", namespace="shop_api")),
     path("__debug__/", include("debug_toolbar.urls")),
 ]
