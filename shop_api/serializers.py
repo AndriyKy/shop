@@ -57,7 +57,7 @@ class OrderSerializer(serializers.ModelSerializer):
         )
 
 
-class OrderSerializer(serializers.ModelSerializer):
+class OrderListSerializer(serializers.ModelSerializer):
     product = ProductSerializer(many=True, read_only=True)
 
     class Meta(OrderSerializer.Meta):
