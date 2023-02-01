@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h1>Create an order</h1>
+  <hr>
+  <div>
+    <h2>THIS IS A jQUERY TEMPLATE</h2>
+
+    <form id="order_form" action="" method="post" novalidate>
+
+      {% csrf_token %}
+      {{ form.errors }}
+      {{ form|crispy }}
+
+      <input type="submit" id="order_submit" value="Submit" class="btn btn-primary">
+      <a href="{% url 'shop_service:product-list' %}">Cancel</a>
+    </form>
+  </div>
+  <script>
+    $(document).ready(function() {
+      $('#order_form').on('submit', function(event){
+          $.ajaxSetup({traditional: true});
+
+          var formData = {
+            csrfmiddlewaretoken: "{{ csrf_token }}",
+            name: $("#id_name").val(),
+            email: $("#id_email").val(),
+            product: $('input[type=checkbox]:checked').map(function()
+              { return $(this).val(); }).get(),
+          };
+
+          $.ajax({
+            type: "POST",
+            url: "{% url 'shop_service:order-jquery-create' %}",
+            data: formData,
+            dataType: "json",
+            encode: true,
+          }).done(function (data) {
+            console.log(data);
+          });
+
+          event.preventDefault();
+          alert("Order successfully created!")
+        });
+    });
+  </script>
+{% endblock %}

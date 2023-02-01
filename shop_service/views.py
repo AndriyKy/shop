@@ -39,3 +39,10 @@ class OrderCreateView(generic.CreateView):
     form_class = OrderForm
     template_name = "shop/order_form.html"
     success_url = reverse_lazy("shop_service:product-list")
+
+
+class OrderWithJQueryCreateView(generic.CreateView):
+    model = Order
+    form_class = OrderForm
+    template_name = "shop/order_jquery_form.html"
+    success_url = reverse_lazy("shop_service:order-jquery-create")
