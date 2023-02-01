@@ -28,7 +28,6 @@ class OrderSerializer(serializers.ModelSerializer):
     def validate(self, attrs):
         data = super(OrderSerializer, self).validate(attrs=attrs)
         product_indexes = Product.objects.values_list("id", flat=True)
-        print(data)
         for index in data["product"]:
             if index not in product_indexes:
                 raise ValidationError(f"Product index {index} does not exist!")
