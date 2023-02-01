@@ -9,7 +9,7 @@ class ProductSearchForm(forms.Form):
         required=False,
         label="",
         widget=forms.TextInput(
-            attrs={"placeholder": "Filter by category ..."}
+            attrs={"placeholder": "Search by category ..."}
         ),
     )
 
