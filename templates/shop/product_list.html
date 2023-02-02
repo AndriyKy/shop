@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load render_table from django_tables2 %}
+
+{% block content %}
+  <h1>
+    Product list
+    <a href="{% url 'shop_service:order-create' %}" class="btn btn-primary link-to-page">
+      Create an order
+    </a>
+  </h1>
+  <hr>
+
+  <form action="" method="get" class="form-inline">
+    {{ search_form }}
+    <input type="submit" value="🔎" class="btn btn-secondary btn-sm btn-inline-form">
+  </form><br>
+
+  {% if product_list %}
+    {% render_table product_list 'django_tables2/bootstrap.html' %}
+  {% else %}
+    <p>There are no any products!</p>
+  {% endif %}
+{% endblock %}
