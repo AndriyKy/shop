@@ -5,12 +5,10 @@
   <h1>Create an order</h1>
   <hr>
   <div>
-    <h2>THIS IS A jQUERY TEMPLATE</h2>
 
     <form id="order_form" action="" method="post" novalidate>
 
       {% csrf_token %}
-      {{ form.errors }}
       {{ form|crispy }}
 
       <input type="submit" id="order_submit" value="Submit" class="btn btn-primary">
