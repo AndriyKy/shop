@@ -11,7 +11,7 @@ admin.site.register(Category)
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    search_fields = ("category",)
+    search_fields = ("category__name",)
 
 
 admin.site.register(Order)
