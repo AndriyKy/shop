@@ -3,8 +3,9 @@ Web service for shop, which includes both user interface and API.
 
 ## Features
 - Admin panel [ **admin/** ]
-- Documentation [ **/api/doc/swagger/** ]
-- List products (web page [ **shop_service/list/** ]) and filter by category
+- Documentation [ **shop_api/doc/swagger/** ]
+- List products (web page [ **shop_service/list/** ]) 
+with searching by category and filtering by all columns
 - Creating orders (through web page and API [ **shop_api/orders/** ])
 - List orders (API  [ **shop_api/orders/** ])
 
