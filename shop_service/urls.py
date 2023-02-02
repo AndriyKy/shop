@@ -8,7 +8,7 @@ from shop_service.views import (
 
 urlpatterns = [
     path(
-        "list/",
+        "products/",
         ProductListView.as_view(),
         name="product-list",
     ),
