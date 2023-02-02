@@ -16,7 +16,9 @@ class ProductSerializer(serializers.ModelSerializer):
 
 
 class OrderSerializer(serializers.ModelSerializer):
-    """Provide Name, Email address and Product model index list to place an order"""
+    """
+    Provide Name, Email address and Product model index list to place an order
+    """
 
     products = serializers.ListSerializer(
         child=serializers.IntegerField(min_value=1),
